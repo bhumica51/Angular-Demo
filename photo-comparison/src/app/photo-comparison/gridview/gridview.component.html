@@ -1,0 +1,21 @@
+<div class="panel-body" class="gridview"
+      infiniteScroll
+      [infiniteScrollDistance]="5"
+      [infiniteScrollUpDistance]="2"
+      [infiniteScrollThrottle]="300"
+      (scrolled)="onScrollDown()"
+      [scrollWindow]="false">
+      <div class="wrapper" *ngIf="photoList.length > 0">
+        <div class="card" style="width: auto;" *ngFor="let photoDetail of photoList ">
+            <img class="card-img-top" src="{{photoDetail.url}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{photoDetail.title}}</h5>
+                <p class="card-text">{{photoDetail.id}}</p>
+
+                <p class="card-text">{{photoDetail.thumbnailUrl}}</p>
+                <button (click)="Compare(photoDetail)" class="btn btn-primary">Compare</button>
+            </div>
+        </div>
+    </div>
+ </div>
+ <app-tableview [selPhoto]="selPhotoDetail"  (valueChange)='addPhoto($event)'></app-tableview>

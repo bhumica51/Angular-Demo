@@ -1,0 +1,19 @@
+<div *ngIf="selPhotoDetails.length > 0">
+    <tr class="title"><h1>table comparison</h1></tr>
+<table class="style" >
+    <tr>
+        <th>photo</th>
+        <th>id</th>
+        <th>url</th>
+        <th>title</th>
+    </tr>
+    <tr *ngFor="let item of selPhotoDetails; let i = index">
+        <td>  <img class="tbl-image" src="{{item.url}}" alt="Card image cap">
+        </td>
+        <td>{{item.id}}</td>
+        <td>{{item.thumbnailUrl}}</td>
+        <td>{{item.title}}</td>
+        <td> <button (click) = "remove(item)">remove</button></td>
+    </tr>
+</table>
+</div>
